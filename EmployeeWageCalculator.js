@@ -9,8 +9,12 @@ let totalDayEmployeePresent = 0;
 
 let TotalNumberOfPartTime = 0;
 
+let maxHours = 10;
+
 
 for (let i = 1; i <= 20; i++) {
+
+    console.log(`Day ${i}`);
 
     let employeeAttendence = getEmployeeAttendence();
     totalDayEmployeePresent += employeeAttendence;
@@ -19,11 +23,14 @@ for (let i = 1; i <= 20; i++) {
 
     switch (employeeAttendence) {
         case 1: {
+            // Checking for part time or full time employee
             if (checkPartForTime()) {
                 TotalNumberOfPartTime += 1
+                console.log("Part Time Employee is Present" + ` on day ${i}`);
                 console.log(`Daily Wage of the Employee is ${20 * 4}`);
 
             } else {
+                console.log("Full Time Employee is Present" + ` on day ${i}`);
                 console.log(`Daily Wage of the Employee is ${20 * 8}`);
             }
         }
@@ -33,6 +40,7 @@ for (let i = 1; i <= 20; i++) {
         }
             break;
     }
+    console.log("=================================================")
 }
 
 function getTotalWage() {
@@ -42,5 +50,6 @@ function getTotalWage() {
     
     return totalWage;
 }
+
 
 console.log(`Total Monthly Wage of the Employee is ${getTotalWage()}`);
