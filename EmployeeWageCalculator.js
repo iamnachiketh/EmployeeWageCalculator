@@ -9,7 +9,7 @@ let totalDayEmployeePresent = 0;
 
 let TotalNumberOfPartTime = 0;
 
-let maxHours = 10;
+let maxHours = 100;
 
 
 for (let i = 1; i <= 20; i++) {
@@ -49,6 +49,21 @@ function getTotalWage() {
     let totalWage = (totalDayFullTime * 20 * 8) + (TotalNumberOfPartTime * 20 * 4);
     
     return totalWage;
+}
+
+
+let  totalNumberOfWorkingHours = () => {
+    let totalDayFullTime = totalDayEmployeePresent - TotalNumberOfPartTime;
+
+    return (totalDayFullTime * 8) + (TotalNumberOfPartTime * 4);
+}
+
+if(totalNumberOfWorkingHours() > maxHours){
+    
+    console.log(`Total Number of Working Hours is ${totalNumberOfWorkingHours()} exceeded the max work hours ${maxHours}`);
+    
+    console.log(`Total Monthly Wage of the Employee is ${getTotalWage()}`);
+    return;
 }
 
 
